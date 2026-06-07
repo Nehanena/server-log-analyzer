@@ -3,7 +3,7 @@ from collections import Counter
 import csv
 from datetime import datetime
 
-# Sample server log data (you can replace with actual log file)
+
 sample_logs = [
     "2026-06-07 10:23:45 Failed password for user admin from 192.168.1.100",
     "2026-06-07 10:23:47 Failed password for user admin from 192.168.1.100",
@@ -27,23 +27,23 @@ def parse_logs(logs):
     successful_logins = []
     
     for log in logs:
-        # Detect failed login attempts
+       
         if "Failed" in log:
             failed_attempts.append(log)
-            # Extract IP address using regex
+         
             ip_match = re.search(r'\d+\.\d+\.\d+\.\d+', log)
             if ip_match:
                 ip_counter[ip_match.group()] += 1
         
-        # Detect 404 errors
+
         if "404" in log:
             error_404_count += 1
         
-        # Detect successful logins
+        
         if "Successfully logged in" in log:
             successful_logins.append(log)
     
-    # Flag IPs with more than 3 failed attempts (suspicious)
+  
     suspicious_ips = {ip: count for ip, count in ip_counter.items() if count > 3}
     
     return {
@@ -76,7 +76,7 @@ def generate_report(results):
     
     print("=" * 50)
     
-    # Save to CSV file
+
     with open('log_report.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['Metric', 'Value'])
@@ -88,7 +88,7 @@ def generate_report(results):
     
     print(f"\n📁 Full report saved to: log_report.csv")
 
-# Run the analyzer
+
 if __name__ == "__main__":
     print("🔍 Starting Server Log Analysis...\n")
     results = parse_logs(sample_logs)
