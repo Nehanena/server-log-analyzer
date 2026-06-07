@@ -1,0 +1,14 @@
+🔍 Starting Server Log Analysis...
+
+==================================================
+SERVER LOG ANALYSIS REPORT
+==================================================
+Time: 2026-06-07 10:48:34
+Total logs analyzed: 11
+Total failed login attempts: 8
+Total 404 errors: 1
+Successful logins: 2
+--------------------------------------------------
+⚠️  SUSPICIOUS IP ADDRESSES DETECTED ⚠️
+   → 192.168.1.100: 5 failed attempts (BRUTE FORCE SUSPECTED)
+==================================================
